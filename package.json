@@ -2,7 +2,7 @@
   "name": "phonebook-typescript",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://VSRudnyk.github.io/phonebook-typescript/",
+  "homepage": "https://VSRudnyk.github.io/phonebook-typescript",
   "dependencies": {
     "@hookform/resolvers": "^3.0.1",
     "@reduxjs/toolkit": "^1.9.3",
