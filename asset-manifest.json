@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/phonebook-typescript/static/js/main.36cdde1d.js",
+    "index.html": "/phonebook-typescript/index.html",
+    "main.36cdde1d.js.map": "/phonebook-typescript/static/js/main.36cdde1d.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.36cdde1d.js"
+  ]
+}
