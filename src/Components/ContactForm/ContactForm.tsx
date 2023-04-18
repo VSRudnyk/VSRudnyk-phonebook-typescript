@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useAddContactMutation } from '../../redux/contactsAPI';
 import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 import { FormWrapper } from './ContactForm.styled';
 
@@ -10,8 +9,12 @@ interface SubmitValues {
   number: string;
 }
 
-export const ContactForm = () => {
-  const [addContact] = useAddContactMutation();
+interface ContactFormProp {
+  addContact: (data: SubmitValues) => void;
+  loading: boolean;
+}
+
+export const ContactForm = ({ addContact, loading }: ContactFormProp) => {
   const validationSchema = yup.object().shape({
     name: yup.string().required(),
     number: yup
@@ -92,7 +95,7 @@ export const ContactForm = () => {
               variant="contained"
               color="primary"
               type="submit"
-              // disabled={isLoading}
+              disabled={loading}
               size="small"
             >
               Add

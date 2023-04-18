@@ -1,19 +1,20 @@
-import { useLoginMutation } from '../../redux/authAPI';
-import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Container, FormWrapper } from './LoginView.styled';
+import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
+import { useRegisterMutation } from '../../redux/authAPI';
+import { Container, FormWrapper } from './RegisterView.styled';
 
 interface SubmitValues {
+  name: string;
   email: string;
   password: string;
 }
 
-export default function LoginView() {
-  const [logIn] = useLoginMutation();
-
+export default function RegisterView() {
+  const [registerUser] = useRegisterMutation();
   const validationSchema = yup.object().shape({
+    name: yup.string().required('Fullname is required'),
     email: yup.string().required('Email is required').email('Email is invalid'),
     password: yup
       .string()
@@ -32,7 +33,8 @@ export default function LoginView() {
   });
 
   const onSubmit = async (data: SubmitValues) => {
-    await logIn(data);
+    await registerUser(data);
+    resetField('name');
     resetField('email');
     resetField('password');
   };
@@ -55,6 +57,22 @@ export default function LoginView() {
             py={2}
           >
             <Grid>
+              <Grid item xs={5} sm={5}>
+                <TextField
+                  required
+                  id="name"
+                  label="Name"
+                  size="small"
+                  fullWidth
+                  margin="dense"
+                  {...register('name')}
+                  error={errors.name ? true : false}
+                />
+                <Typography variant="inherit" color="textSecondary">
+                  {errors.name?.message}
+                </Typography>
+              </Grid>
+
               <Grid item xs={5} sm={5}>
                 <TextField
                   required
@@ -90,12 +108,12 @@ export default function LoginView() {
 
             <Box mt={3}>
               <Button
-                type="submit"
                 variant="contained"
                 color="primary"
                 size="small"
+                type="submit"
               >
-                Log in
+                Register
               </Button>
             </Box>
           </Box>
