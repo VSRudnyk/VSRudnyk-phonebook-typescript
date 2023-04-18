@@ -10,7 +10,7 @@ export default function UserMenu() {
 
   return (
     <Container>
-      <Avatar>{name}</Avatar>
+      <Avatar>{name![0]}</Avatar>
       <Name>Добро пожаловать, {name}</Name>
       <Button
         type="button"
