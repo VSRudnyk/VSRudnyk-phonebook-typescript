@@ -3,6 +3,7 @@ import { ContactForm } from './Components/ContactForm';
 import { ContactList } from './Components/ContactList';
 import { Filter } from './Components/Filter/Filter';
 import { useGetContactQuery } from './redux/contactsAPI';
+// import { LoginView } from './views/LoginView/LoginView';
 
 export const App = () => {
   const [filter, setFilter] = useState('');
@@ -26,6 +27,7 @@ export const App = () => {
   return (
     <div className="App">
       <ContactForm />
+      {/* <LoginView /> */}
       <Filter value={filter} onChange={changeFilter} />
       <ContactList items={visibleContacts} />
     </div>

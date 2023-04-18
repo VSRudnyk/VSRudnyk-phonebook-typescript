@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Input = styled.input`
-  width: 150px;
+export const Container = styled.div`
+  width: 450px;
+  margin-top: 50px;
 `;

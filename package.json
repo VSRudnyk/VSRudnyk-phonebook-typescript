@@ -4,7 +4,10 @@
   "private": true,
   "homepage": "https://VSRudnyk.github.io/phonebook-typescript",
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@hookform/resolvers": "^3.0.1",
+    "@mui/material": "^5.12.1",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

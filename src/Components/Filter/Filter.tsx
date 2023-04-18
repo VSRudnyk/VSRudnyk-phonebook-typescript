@@ -1,4 +1,5 @@
-import { Form, Input } from './Filter.styled';
+import { TextField } from '@mui/material';
+import { Container } from './Filter.styled';
 
 interface FilterProps {
   value: string;
@@ -7,15 +8,16 @@ interface FilterProps {
 
 export const Filter = ({ value, onChange }: FilterProps) => {
   return (
-    <Form>
-      <label htmlFor="filter">Find contact by name</label>
-      <Input
-        type="text"
-        id="filter"
+    <Container>
+      <TextField
+        id="outlined-basic"
+        label="Find contact by name"
+        variant="outlined"
         onChange={(e) => onChange(e.target.value)}
         value={value}
         autoComplete="off"
+        size="small"
       />
-    </Form>
+    </Container>
   );
 };
