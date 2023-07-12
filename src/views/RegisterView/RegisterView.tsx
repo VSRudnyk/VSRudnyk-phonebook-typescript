@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { Navigate } from 'react-router-dom';
 import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 import { useRegisterMutation } from '../../redux/authAPI';
 import { Container, FormWrapper } from './RegisterView.styled';
@@ -12,7 +13,8 @@ interface SubmitValues {
 }
 
 export default function RegisterView() {
-  const [registerUser] = useRegisterMutation();
+  const [registerUser, { isSuccess }] = useRegisterMutation();
+
   const validationSchema = yup.object().shape({
     name: yup.string().required('Fullname is required'),
     email: yup.string().required('Email is required').email('Email is invalid'),
@@ -119,6 +121,7 @@ export default function RegisterView() {
           </Box>
         </Paper>
       </FormWrapper>
+      {isSuccess && <Navigate to="/login" />}
     </Container>
   );
 }

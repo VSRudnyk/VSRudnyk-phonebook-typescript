@@ -2,8 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from './store';
 
 export interface User {
+  _id: string | null;
   name: string | null;
   email: string | null;
+  subscription: string | null;
+  avatarURL: string | undefined;
 }
 
 export interface UserResponse {
@@ -12,14 +15,20 @@ export interface UserResponse {
 }
 
 export interface LoginRequest {
-  name?: string;
   password: string;
   email: string;
 }
+
+export interface RegisterRequest {
+  name: string;
+  password: string;
+  email: string;
+}
+
 export const authAPI = createApi({
   reducerPath: 'authAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
+    baseUrl: 'http://localhost:3000/api/',
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.token;
       if (token) {
@@ -28,30 +37,26 @@ export const authAPI = createApi({
       return headers;
     },
   }),
-  endpoints: (builder) => ({
+  endpoints: builder => ({
     fetchCurrentUser: builder.query({
       query: () => 'users/current',
     }),
     login: builder.mutation<UserResponse, LoginRequest>({
-      query: (credentials) => ({
+      query: credentials => ({
         url: 'users/login',
         method: 'POST',
         body: credentials,
       }),
     }),
-    register: builder.mutation<UserResponse, LoginRequest>({
-      query: (credentials) => ({
+    register: builder.mutation<UserResponse, RegisterRequest>({
+      query: credentials => ({
         url: 'users/signup',
         method: 'POST',
         body: credentials,
       }),
     }),
     logout: builder.mutation({
-      query: (credentials) => ({
-        url: 'users/logout',
-        method: 'POST',
-        body: credentials,
-      }),
+      query: () => 'users/logout',
     }),
   }),
 });

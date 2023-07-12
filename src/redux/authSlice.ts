@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { authAPI, User } from './authAPI';
-import { RootState } from './store';
+import { toast } from 'react-hot-toast';
 
 export type AuthState = {
   user: User;
@@ -16,24 +16,26 @@ export const authSlice = createSlice({
     isLoggedIn: false,
   } as AuthState,
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addMatcher(
       authAPI.endpoints.register.matchFulfilled,
       (state, { payload }) => {
-        state.token = payload.token;
+        toast.success(
+          `${payload.user.name} successfully registered, please login...!`
+        );
         state.user = payload.user;
-        state.isLoggedIn = true;
       }
     );
     builder.addMatcher(
       authAPI.endpoints.login.matchFulfilled,
       (state, { payload }) => {
+        toast.success(`${payload.user.name} successfully logged`);
         state.token = payload.token;
         state.user = payload.user;
         state.isLoggedIn = true;
       }
     );
-    builder.addMatcher(authAPI.endpoints.logout.matchFulfilled, (state) => {
+    builder.addMatcher(authAPI.endpoints.logout.matchFulfilled, state => {
       state.token = null;
       state.user.name = null;
       state.user.email = null;
@@ -42,16 +44,12 @@ export const authSlice = createSlice({
     builder.addMatcher(
       authAPI.endpoints.fetchCurrentUser.matchFulfilled,
       (state, { payload }) => {
-        state.user = payload;
+        state.user = payload.user;
         state.isLoggedIn = true;
       }
     );
   },
   reducers: {},
 });
-
-export const getIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
-export const getUsername = (state: RootState) => state.auth.user.name;
-export const getToken = (state: RootState) => state.auth.token;
 
 export default authSlice.reducer;

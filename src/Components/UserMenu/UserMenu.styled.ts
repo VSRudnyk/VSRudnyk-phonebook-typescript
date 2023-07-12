@@ -5,17 +5,17 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Avatar = styled.p`
-  display: flex;
+export const Avatar = styled.img`
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   width: 35px;
   height: 35px;
   margin-right: 4px;
-  border: 2px solid rgb(133, 133, 133);
+  /* border: 2px solid rgb(133, 133, 133); */
   border-radius: 50%;
-  font-size: 25px;
-  font-weight: 400;
+  /* font-size: 25px;
+  font-weight: 400; */
 `;
 
 export const Name = styled.span`

@@ -14,6 +14,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { contactsAPI } from './contactsAPI';
 import { authAPI } from './authAPI';
 import authReducer from './authSlice';
+import { rtkQueryErrorLogger } from './error';
 
 const authPersistConfig = {
   key: 'auth',
@@ -29,12 +30,13 @@ export const store = configureStore({
     [authAPI.reducerPath]: authAPI.reducer,
     auth: persistedReducer,
   },
-  middleware: (getDefaultMiddleware) => [
+  middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(rtkQueryErrorLogger),
+
     contactsAPI.middleware,
     authAPI.middleware,
   ],
