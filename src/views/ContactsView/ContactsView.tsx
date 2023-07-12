@@ -1,4 +1,4 @@
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { InfinitySpin } from 'react-loader-spinner';
 import { useState } from 'react';
 import { ContactForm } from '../../Components/ContactForm';
@@ -58,8 +58,6 @@ export default function ContactsView() {
           <ContactList items={visibleContacts} />
         )}
       </>
-
-      <Toaster />
     </Container>
   );
 }
