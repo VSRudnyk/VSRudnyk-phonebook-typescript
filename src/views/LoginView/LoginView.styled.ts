@@ -5,10 +5,10 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
 `;
 
 export const FormWrapper = styled.form`
-  width: 450px;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
 `;

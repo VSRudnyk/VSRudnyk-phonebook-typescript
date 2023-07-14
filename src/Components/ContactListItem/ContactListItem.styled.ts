@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
-  width: 500px;
-  font-size: 20px;
+  font-size: 16px;
   &:not(:last-child) {
     margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
   }
 `;
 

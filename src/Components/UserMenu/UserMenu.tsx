@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 import authSelectors from '../../redux/authSelectors';
 import { useLogoutMutation } from '../../redux/authAPI';
 import { Container, Avatar, Name } from './UserMenu.styled';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function UserMenu() {
   const [logOut] = useLogoutMutation();
@@ -11,16 +12,16 @@ export default function UserMenu() {
 
   return (
     <Container>
+      <Name>{name}</Name>
       <Avatar src={avatar} alt="avatar" />
-      <Name>Добро пожаловать, {name}</Name>
       <Button
         type="button"
-        variant="contained"
+        variant="text"
         color="primary"
         size="small"
         onClick={logOut}
       >
-        Log out
+        <LogoutIcon />
       </Button>
     </Container>
   );

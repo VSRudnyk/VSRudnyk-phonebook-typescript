@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.form`
-  width: 450px;
+  @media screen and (min-width: 780px) {
+    width: 450px;
+  }
 `;

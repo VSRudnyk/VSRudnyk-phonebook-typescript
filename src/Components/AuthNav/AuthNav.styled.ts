@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Link = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
-  padding: 20px 12px;
+  padding: 10px;
   font-weight: 500;
   color: #2a363b;
   font-size: 18px;

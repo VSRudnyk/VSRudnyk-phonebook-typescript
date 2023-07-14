@@ -8,5 +8,7 @@ export const Container = styled.div`
 `;
 
 export const FormWrapper = styled.form`
-  width: 450px;
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
 `;

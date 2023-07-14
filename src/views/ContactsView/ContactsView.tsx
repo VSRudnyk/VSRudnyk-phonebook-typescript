@@ -6,7 +6,11 @@ import { ContactList } from '../../Components/ContactList';
 import { Filter } from '../../Components/Filter/Filter';
 import { useGetContactQuery } from '../../redux/contactsAPI';
 import { useAddContactMutation } from '../../redux/contactsAPI';
-import { Container } from './ContactsView.styled';
+import {
+  Container,
+  HeaderTitle,
+  ContactListTitle,
+} from './ContactsView.styled';
 
 interface SubmitValues {
   name: string;
@@ -47,10 +51,10 @@ export default function ContactsView() {
   return (
     <Container>
       <>
-        <h1>Phonebook</h1>
+        <HeaderTitle>Phonebook</HeaderTitle>
         <ContactForm addContact={addMyContact} loading={loading} />
 
-        <h2>Contacts</h2>
+        <ContactListTitle>Contacts</ContactListTitle>
         <Filter value={filter} onChange={changeFilter} />
         {isLoading ? (
           <InfinitySpin color="grey" />
