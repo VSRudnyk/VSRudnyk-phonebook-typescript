@@ -52,7 +52,8 @@ export default function ContactsView() {
     <Container>
       <>
         <HeaderTitle>Phonebook</HeaderTitle>
-        <ContactForm addContact={addMyContact} loading={loading} />
+        <ContactListTitle>Add new contact</ContactListTitle>
+        <ContactForm action={addMyContact} loading={loading} />
 
         <ContactListTitle>Contacts</ContactListTitle>
         <Filter value={filter} onChange={changeFilter} />

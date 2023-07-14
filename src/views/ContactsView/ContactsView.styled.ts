@@ -15,7 +15,10 @@ export const Container = styled.div`
 `;
 
 export const HeaderTitle = styled.h1`
-  margin-bottom: 25px;
+  margin-bottom: 26px;
+  @media screen and (max-width: 779px) {
+    text-align: center;
+  }
 `;
 
 export const ContactListTitle = styled.h2`

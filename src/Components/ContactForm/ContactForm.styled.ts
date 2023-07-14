@@ -5,3 +5,7 @@ export const FormWrapper = styled.form`
     width: 450px;
   }
 `;
+
+export const AddContactTitle = styled.h2`
+  margin-bottom: 25px;
+`;

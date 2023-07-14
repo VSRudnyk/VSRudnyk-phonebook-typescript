@@ -10,11 +10,11 @@ interface SubmitValues {
 }
 
 interface ContactFormProp {
-  addContact: (data: SubmitValues) => void;
+  action: (data: SubmitValues) => void;
   loading: boolean;
 }
 
-export const ContactForm = ({ addContact, loading }: ContactFormProp) => {
+export const ContactForm = ({ action, loading }: ContactFormProp) => {
   const validationSchema = yup.object().shape({
     name: yup.string().required(),
     number: yup
@@ -36,7 +36,7 @@ export const ContactForm = ({ addContact, loading }: ContactFormProp) => {
   });
 
   const onSubmit = async (data: SubmitValues) => {
-    await addContact(data);
+    await action(data);
     resetField('name');
     resetField('number');
   };
