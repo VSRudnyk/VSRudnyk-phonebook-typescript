@@ -20,11 +20,11 @@ interface SubmitValues {
 export default function ContactsView() {
   const [filter, setFilter] = useState('');
 
-  const { data: contacts, isLoading } = useGetContactQuery('');
+  const { data, isLoading } = useGetContactQuery('');
   const [addContact, { isLoading: loading }] = useAddContactMutation();
 
   const addMyContact = (value: SubmitValues) => {
-    for (const contact of contacts) {
+    for (const contact of data?.result) {
       if (contact.name === value.name) {
         toast.error(`${value.name} is already in contacts.`);
         return;
@@ -40,8 +40,8 @@ export default function ContactsView() {
 
   const getVisibleContacts = () => {
     const normalizedFilter: string = filter.toLowerCase();
-    if (contacts) {
-      return contacts.filter((item: { name: string }) =>
+    if (data?.result) {
+      return data?.result.filter((item: { name: string }) =>
         item.name.toLowerCase().includes(normalizedFilter)
       );
     }

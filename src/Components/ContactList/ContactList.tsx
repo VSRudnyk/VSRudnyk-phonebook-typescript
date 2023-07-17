@@ -2,7 +2,7 @@ import { List } from './ContactList.styled';
 import { ContactListItem } from '../ContactListItem/ContactListItem';
 
 interface Contact {
-  id: number;
+  _id: string;
   name: string;
   number: string;
 }
@@ -16,8 +16,8 @@ export const ContactList = ({ items }: Prop) => {
     <>
       {items && (
         <List>
-          {items.map((contact) => (
-            <ContactListItem key={contact.id} {...contact} />
+          {items.map(contact => (
+            <ContactListItem key={contact._id} {...contact} />
           ))}
         </List>
       )}

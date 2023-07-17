@@ -9,12 +9,12 @@ import {
 import { useDeleteContactMutation } from '../../redux/contactsAPI';
 
 interface Contact {
-  id: number;
+  _id: string;
   name: string;
   number: string;
 }
 
-export const ContactListItem = ({ id, name, number }: Contact) => {
+export const ContactListItem = ({ _id, name, number }: Contact) => {
   const [deleteContacts, { isLoading: isDeleting }] =
     useDeleteContactMutation();
 
@@ -31,7 +31,7 @@ export const ContactListItem = ({ id, name, number }: Contact) => {
           disabled={isDeleting}
           size="small"
           color="primary"
-          onClick={() => deleteContacts(id)}
+          onClick={() => deleteContacts(_id)}
         >
           {isDeleting && <RotatingLines width="10" />} Delete
         </Button>
