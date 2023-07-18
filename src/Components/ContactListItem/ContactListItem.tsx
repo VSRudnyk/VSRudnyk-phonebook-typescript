@@ -1,12 +1,12 @@
-import { RotatingLines } from 'react-loader-spinner';
-import { Button } from '@mui/material';
+import { useState } from 'react';
+import { Dialog } from '@mui/material';
+import { ContactForm } from '../ContactForm';
 import {
   Item,
   NameContainer,
   ItemContainer,
   Name,
 } from './ContactListItem.styled';
-import { useDeleteContactMutation } from '../../redux/contactsAPI';
 
 interface Contact {
   _id: string;
@@ -15,27 +15,34 @@ interface Contact {
 }
 
 export const ContactListItem = ({ _id, name, number }: Contact) => {
-  const [deleteContacts, { isLoading: isDeleting }] =
-    useDeleteContactMutation();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Item>
-      <ItemContainer>
-        <NameContainer>
-          <Name>{name}</Name>
-          <Name>{number}</Name>
-        </NameContainer>
-        <Button
-          variant="outlined"
-          type="button"
-          disabled={isDeleting}
-          size="small"
-          color="primary"
-          onClick={() => deleteContacts(_id)}
-        >
-          {isDeleting && <RotatingLines width="10" />} Delete
-        </Button>
-      </ItemContainer>
+      <div onClick={handleClickOpen}>
+        <ItemContainer>
+          <NameContainer>
+            <Name>{name}</Name>
+            <Name>{number}</Name>
+          </NameContainer>
+        </ItemContainer>
+      </div>
+      <Dialog open={open} onClose={handleClose}>
+        <ContactForm
+          type="update"
+          itemData={{ name, number }}
+          id={_id}
+          closeModal={handleClose}
+        />
+      </Dialog>
     </Item>
   );
 };
