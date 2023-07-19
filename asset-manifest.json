@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/phonebook-typescript/static/css/main.688d91ec.css",
-    "main.js": "/phonebook-typescript/static/js/main.8f77eb75.js",
-    "static/js/505.60cf87ca.chunk.js": "/phonebook-typescript/static/js/505.60cf87ca.chunk.js",
-    "static/js/839.7a5dd06e.chunk.js": "/phonebook-typescript/static/js/839.7a5dd06e.chunk.js",
-    "static/js/425.996a838a.chunk.js": "/phonebook-typescript/static/js/425.996a838a.chunk.js",
+    "main.js": "/phonebook-typescript/static/js/main.a33f6735.js",
+    "static/js/505.222852c9.chunk.js": "/phonebook-typescript/static/js/505.222852c9.chunk.js",
+    "static/js/839.b2108a31.chunk.js": "/phonebook-typescript/static/js/839.b2108a31.chunk.js",
+    "static/js/425.5cc8247e.chunk.js": "/phonebook-typescript/static/js/425.5cc8247e.chunk.js",
     "static/js/406.b7071820.chunk.js": "/phonebook-typescript/static/js/406.b7071820.chunk.js",
     "static/js/532.455be2dd.chunk.js": "/phonebook-typescript/static/js/532.455be2dd.chunk.js",
     "index.html": "/phonebook-typescript/index.html",
     "main.688d91ec.css.map": "/phonebook-typescript/static/css/main.688d91ec.css.map",
-    "main.8f77eb75.js.map": "/phonebook-typescript/static/js/main.8f77eb75.js.map",
-    "505.60cf87ca.chunk.js.map": "/phonebook-typescript/static/js/505.60cf87ca.chunk.js.map",
-    "839.7a5dd06e.chunk.js.map": "/phonebook-typescript/static/js/839.7a5dd06e.chunk.js.map",
-    "425.996a838a.chunk.js.map": "/phonebook-typescript/static/js/425.996a838a.chunk.js.map",
+    "main.a33f6735.js.map": "/phonebook-typescript/static/js/main.a33f6735.js.map",
+    "505.222852c9.chunk.js.map": "/phonebook-typescript/static/js/505.222852c9.chunk.js.map",
+    "839.b2108a31.chunk.js.map": "/phonebook-typescript/static/js/839.b2108a31.chunk.js.map",
+    "425.5cc8247e.chunk.js.map": "/phonebook-typescript/static/js/425.5cc8247e.chunk.js.map",
     "406.b7071820.chunk.js.map": "/phonebook-typescript/static/js/406.b7071820.chunk.js.map",
     "532.455be2dd.chunk.js.map": "/phonebook-typescript/static/js/532.455be2dd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.688d91ec.css",
-    "static/js/main.8f77eb75.js"
+    "static/js/main.a33f6735.js"
   ]
 }
