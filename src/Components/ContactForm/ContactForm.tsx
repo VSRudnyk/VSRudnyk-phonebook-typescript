@@ -107,6 +107,7 @@ export const ContactForm = ({
           elevation={3}
           sx={{
             width: 'auto',
+            boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
           }}
         >
           <Box

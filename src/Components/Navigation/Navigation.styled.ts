@@ -36,6 +36,5 @@ export const Container = styled.div`
 
 export const Nav = styled.nav`
   width: 100%;
-  box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
-    0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  box-shadow: 3px 3px 5px 0px rgba(25, 118, 210, 1);
 `;

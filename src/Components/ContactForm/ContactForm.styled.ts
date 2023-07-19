@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Box } from '@mui/material';
 
 export const FormWrapper = styled.form`
+  border-radius: 4px;
   @media screen and (min-width: 780px) {
     width: 450px;
   }

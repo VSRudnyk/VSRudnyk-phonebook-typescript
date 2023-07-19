@@ -49,6 +49,7 @@ export default function RegisterView() {
           sx={{
             margin: 3,
             width: 'auto',
+            boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
           }}
         >
           <Box
