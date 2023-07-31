@@ -7,7 +7,7 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   padding: 10px;
   font-weight: 500;
-  color: #2a363b;
+  color: #ffffff;
   font-size: 18px;
   &.active {
     color: #2196f3;
@@ -35,6 +35,7 @@ export const Container = styled.div`
 `;
 
 export const Nav = styled.nav`
+  position: absolute;
   width: 100%;
   box-shadow: 3px 3px 5px 0px rgba(25, 118, 210, 1);
 `;

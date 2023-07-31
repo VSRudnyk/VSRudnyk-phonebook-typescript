@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Dialog } from '@mui/material';
 import { ContactForm } from '../ContactForm';
+import { BackgroundLetterAvatars } from '../BackgroundLetterAvatars/BackgroundLetterAvatars';
 import {
   Item,
   NameContainer,
@@ -30,6 +31,7 @@ export const ContactListItem = ({ _id, name, number }: Contact) => {
       <div onClick={handleClickOpen}>
         <ItemContainer>
           <NameContainer>
+            <BackgroundLetterAvatars avatarName={name} />
             <Name>{name}</Name>
             <Name>{number}</Name>
           </NameContainer>

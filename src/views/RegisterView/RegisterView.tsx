@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { Navigate } from 'react-router-dom';
 import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 import { useRegisterMutation } from '../../redux/authAPI';
-import { Container, FormWrapper } from './RegisterView.styled';
+import { Background, Container, FormWrapper } from './RegisterView.styled';
 
 interface SubmitValues {
   name: string;
@@ -42,87 +42,88 @@ export default function RegisterView() {
   };
 
   return (
-    <Container>
-      <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-        <Paper
-          elevation={3}
-          sx={{
-            margin: 3,
-            width: 'auto',
-            boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
-          }}
-        >
-          <Box
+    <Background>
+      <Container>
+        <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+          <Paper
+            elevation={3}
             sx={{
               width: 'auto',
+              boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
             }}
-            px={3}
-            py={2}
           >
-            <Grid>
-              <Grid item xs={5} sm={5}>
-                <TextField
-                  required
-                  id="name"
-                  label="Name"
-                  size="small"
-                  fullWidth
-                  margin="dense"
-                  {...register('name')}
-                  error={errors.name ? true : false}
-                />
-                <Typography variant="inherit" color="textSecondary">
-                  {errors.name?.message}
-                </Typography>
+            <Box
+              sx={{
+                width: 'auto',
+              }}
+              px={3}
+              py={2}
+            >
+              <Grid>
+                <Grid item xs={5} sm={5}>
+                  <TextField
+                    required
+                    id="name"
+                    label="Name"
+                    size="small"
+                    fullWidth
+                    margin="dense"
+                    {...register('name')}
+                    error={errors.name ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.name?.message}
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={5} sm={5}>
+                  <TextField
+                    required
+                    id="email"
+                    label="Email"
+                    size="small"
+                    fullWidth
+                    margin="dense"
+                    {...register('email')}
+                    error={errors.email ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.email?.message}
+                  </Typography>
+                </Grid>
+                <Grid item xs={5} sm={5}>
+                  <TextField
+                    required
+                    id="password"
+                    label="Password"
+                    type="password"
+                    size="small"
+                    fullWidth
+                    margin="dense"
+                    {...register('password')}
+                    error={errors.password ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.password?.message}
+                  </Typography>
+                </Grid>
               </Grid>
 
-              <Grid item xs={5} sm={5}>
-                <TextField
-                  required
-                  id="email"
-                  label="Email"
+              <Box mt={3}>
+                <Button
+                  variant="contained"
+                  color="primary"
                   size="small"
-                  fullWidth
-                  margin="dense"
-                  {...register('email')}
-                  error={errors.email ? true : false}
-                />
-                <Typography variant="inherit" color="textSecondary">
-                  {errors.email?.message}
-                </Typography>
-              </Grid>
-              <Grid item xs={5} sm={5}>
-                <TextField
-                  required
-                  id="password"
-                  label="Password"
-                  type="password"
-                  size="small"
-                  fullWidth
-                  margin="dense"
-                  {...register('password')}
-                  error={errors.password ? true : false}
-                />
-                <Typography variant="inherit" color="textSecondary">
-                  {errors.password?.message}
-                </Typography>
-              </Grid>
-            </Grid>
-
-            <Box mt={3}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                type="submit"
-              >
-                Register
-              </Button>
+                  type="submit"
+                >
+                  Register
+                </Button>
+              </Box>
             </Box>
-          </Box>
-        </Paper>
-      </FormWrapper>
-      {isSuccess && <Navigate to="/login" />}
-    </Container>
+          </Paper>
+        </FormWrapper>
+        {isSuccess && <Navigate to="/login" />}
+      </Container>
+    </Background>
   );
 }

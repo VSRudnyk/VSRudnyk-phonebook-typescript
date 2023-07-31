@@ -17,6 +17,7 @@ interface SubmitValues {
   id?: string;
   name?: string;
   number?: string;
+  avatar?: any;
 }
 
 interface ContactFormProp {

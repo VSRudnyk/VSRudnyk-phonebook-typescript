@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper, Box, Grid } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Container, FormWrapper } from './LoginView.styled';
+import { Background, Container, FormWrapper } from './LoginView.styled';
 
 interface SubmitValues {
   email: string;
@@ -38,70 +38,71 @@ export default function LoginView() {
   };
 
   return (
-    <Container>
-      <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-        <Paper
-          elevation={3}
-          sx={{
-            margin: 3,
-            width: 'auto',
-            boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
-          }}
-        >
-          <Box
+    <Background>
+      <Container>
+        <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+          <Paper
+            elevation={3}
             sx={{
               width: 'auto',
+              boxShadow: '3px 3px 5px 0px rgba(25, 118, 210, 1)',
             }}
-            px={3}
-            py={2}
           >
-            <Grid>
-              <Grid item xs={5} sm={5}>
-                <TextField
-                  required
-                  id="email"
-                  label="Email"
-                  size="small"
-                  fullWidth
-                  margin="dense"
-                  {...register('email')}
-                  error={errors.email ? true : false}
-                />
-                <Typography variant="inherit" color="textSecondary">
-                  {errors.email?.message}
-                </Typography>
+            <Box
+              sx={{
+                width: 'auto',
+              }}
+              px={3}
+              py={2}
+            >
+              <Grid>
+                <Grid item xs={5} sm={5}>
+                  <TextField
+                    required
+                    id="email"
+                    label="Email"
+                    size="small"
+                    fullWidth
+                    margin="dense"
+                    {...register('email')}
+                    error={errors.email ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.email?.message}
+                  </Typography>
+                </Grid>
+                <Grid item xs={5} sm={5}>
+                  <TextField
+                    required
+                    id="password"
+                    label="Password"
+                    type="password"
+                    size="small"
+                    fullWidth
+                    margin="dense"
+                    {...register('password')}
+                    error={errors.password ? true : false}
+                  />
+                  <Typography variant="inherit" color="textSecondary">
+                    {errors.password?.message}
+                  </Typography>
+                </Grid>
               </Grid>
-              <Grid item xs={5} sm={5}>
-                <TextField
-                  required
-                  id="password"
-                  label="Password"
-                  type="password"
-                  size="small"
-                  fullWidth
-                  margin="dense"
-                  {...register('password')}
-                  error={errors.password ? true : false}
-                />
-                <Typography variant="inherit" color="textSecondary">
-                  {errors.password?.message}
-                </Typography>
-              </Grid>
-            </Grid>
 
-            <Box mt={3}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="small"
-              >
-                Log in
-              </Button>
+              <Box mt={3}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                >
+                  Log in
+                </Button>
+              </Box>
             </Box>
-          </Box>
-        </Paper>
-      </FormWrapper>
-    </Container>
+          </Paper>
+        </FormWrapper>
+      </Container>
+    </Background>
   );
 }
